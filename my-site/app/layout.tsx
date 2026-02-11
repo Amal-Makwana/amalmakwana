@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "./components/site-header";
 import { SiteFooter } from "./components/site-footer";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap"
+});
+
 export const metadata: Metadata = {
-  title: "My Site",
-  description: "A personal website built with Next.js"
+  title: "Amal Makwana",
+  description: "Personal website of Amal Makwana"
 };
 
 export default function RootLayout({
@@ -15,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
+      <body className={`${inter.className} min-h-screen`}>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
           <main className="container-shell flex-1 py-16 md:py-24">{children}</main>
