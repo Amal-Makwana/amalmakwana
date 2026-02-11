@@ -16,11 +16,7 @@ export function SiteHeader() {
 
   return (
     <header className="border-b border-black/10">
-      <div className="container-shell flex items-center justify-between py-6">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
-          Your Name
-        </Link>
-
+      <div className="container-shell flex items-center justify-end py-6">
         <button
           type="button"
           className="rounded-md border border-black/15 px-3 py-2 text-sm md:hidden"
