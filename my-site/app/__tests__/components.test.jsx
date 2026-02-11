@@ -32,9 +32,14 @@ describe("App components", () => {
     expect(screen.getByText("Interests")).toBeVisible();
   });
 
-  it("renders AboutPage text", () => {
+  it("renders AboutPage text and contact form fields", () => {
     render(<AboutPage />);
 
     expect(screen.getByText("Contact me")).toBeVisible();
+    expect(screen.getByLabelText("Name")).toBeVisible();
+    expect(screen.getByLabelText("email address")).toBeVisible();
+    expect(screen.getByLabelText("phone number")).toBeVisible();
+    expect(screen.getByLabelText("Reason")).toBeVisible();
+    expect(screen.getByRole("button", { name: "Enquire" })).toBeVisible();
   });
 });
