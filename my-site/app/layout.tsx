@@ -1,24 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "./components/site-header";
 import { SiteFooter } from "./components/site-footer";
-
-const inter = localFont({
-  src: [
-    {
-      path: "./fonts/Inter-Regular.woff2",
-      weight: "400",
-      style: "normal"
-    },
-    {
-      path: "./fonts/Inter-Bold.woff2",
-      weight: "700",
-      style: "normal"
-    }
-  ],
-  display: "swap"
-});
 
 export const metadata: Metadata = {
   title: "Amal Makwana",
@@ -31,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <body className="min-h-screen">
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
