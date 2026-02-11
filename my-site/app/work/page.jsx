@@ -2,10 +2,10 @@ export default function WorkPage() {
   return (
     <div className="editorial">
       <section className="space-y-6">
-        <h1>Work</h1>
+        <h1>Interests</h1>
         <p>
-          Selected projects, experiments, and collaborations. Add case studies here with context,
-          outcomes, and lessons learned.
+          Areas I&apos;m currently curious about, learning from, and actively exploring through
+          side projects and research.
         </p>
       </section>
     </div>
