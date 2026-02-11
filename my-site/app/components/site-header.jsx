@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" }
+  { href: "/work", label: "Interests" },
+  { href: "/about", label: "Contact me" }
 ];
 
 export function SiteHeader() {
@@ -19,7 +19,7 @@ export function SiteHeader() {
           className="text-base font-medium tracking-tight transition-opacity hover:opacity-70"
           onClick={() => setMenuOpen(false)}
         >
-          Amal Makwana
+          Home
         </Link>
 
         <button
