@@ -32,10 +32,16 @@ describe("App components", () => {
     expect(screen.getByText("Interests")).toBeVisible();
   });
 
-  it("renders AboutPage text and contact form fields", () => {
+  it("renders AboutPage contact sections and form fields", () => {
     render(<AboutPage />);
 
     expect(screen.getByText("Contact me")).toBeVisible();
+    expect(screen.getByText("LinkedIn")).toBeVisible();
+    expect(screen.getByRole("link", { name: "Visit my LinkedIn profile" })).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/amalmakwana/"
+    );
+    expect(screen.getByText("Send an enquiry")).toBeVisible();
     expect(screen.getByLabelText("Name")).toBeVisible();
     expect(screen.getByLabelText("email address")).toBeVisible();
     expect(screen.getByLabelText("phone number")).toBeVisible();
