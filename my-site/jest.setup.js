@@ -15,12 +15,30 @@ jest.mock("next/link", () => {
 });
 
 jest.mock("framer-motion", () => {
-  const MockMotionDiv = ({ children, ...props }) => <div {...props}>{children}</div>;
+  const createMotionComponent = (tag) => {
+    return function MockMotionComponent({
+      children,
+      initial,
+      whileInView,
+      viewport,
+      variants,
+      transition,
+      animate,
+      exit,
+      ...props
+    }) {
+      const Component = tag;
+      return <Component {...props}>{children}</Component>;
+    };
+  };
 
   return {
     AnimatePresence: ({ children }) => <>{children}</>,
-    motion: {
-      div: MockMotionDiv
-    }
+    motion: new Proxy(
+      {},
+      {
+        get: (_, tag) => createMotionComponent(tag)
+      }
+    )
   };
 });
