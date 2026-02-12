@@ -63,7 +63,7 @@ export default function AboutPage() {
           </div>
         </details>
 
-        <details className="rounded-md border border-black/15 p-4" open>
+        <details className="rounded-md border border-black/15 p-4">
           <summary className="cursor-pointer text-sm font-medium text-black/90">Send an enquiry</summary>
           <form className="mt-4 space-y-4" onSubmit={handleEnquire}>
             <div className="space-y-1">

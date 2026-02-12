@@ -42,10 +42,12 @@ describe("App components", () => {
       "https://www.linkedin.com/in/amalmakwana/"
     );
     expect(screen.getByText("Send an enquiry")).toBeVisible();
-    expect(screen.getByLabelText("Name")).toBeVisible();
-    expect(screen.getByLabelText("email address")).toBeVisible();
-    expect(screen.getByLabelText("phone number")).toBeVisible();
-    expect(screen.getByLabelText("Reason")).toBeVisible();
-    expect(screen.getByRole("button", { name: "Enquire" })).toBeVisible();
+    const enquiryDetails = screen.getByText("Send an enquiry").closest("details");
+    expect(enquiryDetails).not.toHaveAttribute("open");
+    expect(screen.getByLabelText("Name")).toBeInTheDocument();
+    expect(screen.getByLabelText("email address")).toBeInTheDocument();
+    expect(screen.getByLabelText("phone number")).toBeInTheDocument();
+    expect(screen.getByLabelText("Reason")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Enquire" })).toBeInTheDocument();
   });
 });
