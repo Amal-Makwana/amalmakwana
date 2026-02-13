@@ -54,3 +54,49 @@ body {
 .editorial p {
   @apply text-lg leading-8 text-black/75;
 }
+
+
+.typewriter-line {
+  --typewriter-duration: 2.3s;
+  position: relative;
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: baseline;
+  font: inherit;
+  color: inherit;
+  animation: typing var(--typewriter-duration) steps(16, end) 250ms forwards;
+}
+
+.typewriter-line::after {
+  content: "";
+  position: absolute;
+  right: -0.1em;
+  top: 0.1em;
+  width: 2px;
+  height: 0.85em;
+  background: currentColor;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 16ch;
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
