@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const phrases = [
   "Avid Learner",
   "AI Enthusiast",
@@ -7,16 +11,24 @@ const phrases = [
   "Agile Expert",
 ];
 
-const phraseAnimationSettings = [
-  { x: "-130px", y: "-90px", delay: "0s", duration: "7s" },
-  { x: "140px", y: "-70px", delay: "0.7s", duration: "7.6s" },
-  { x: "-110px", y: "95px", delay: "1.3s", duration: "8.1s" },
-  { x: "155px", y: "105px", delay: "1.9s", duration: "7.4s" },
-  { x: "0px", y: "-130px", delay: "2.6s", duration: "8.4s" },
-  { x: "0px", y: "130px", delay: "3.1s", duration: "7.8s" },
-];
-
 export default function HomePage() {
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    const revealInterval = setInterval(() => {
+      setVisibleCount((current) => {
+        if (current >= phrases.length) {
+          clearInterval(revealInterval);
+          return current;
+        }
+
+        return current + 1;
+      });
+    }, 280);
+
+    return () => clearInterval(revealInterval);
+  }, []);
+
   return (
     <div className="editorial">
       <section className="section-grid">
@@ -29,23 +41,11 @@ export default function HomePage() {
             </span>
           </h1>
           <div className="phrase-cloud" aria-label="Professional roles and interests">
-            {phrases.map((phrase, index) => {
-              const animation = phraseAnimationSettings[index % phraseAnimationSettings.length];
-              return (
-                <span
-                  key={phrase}
-                  className="phrase-chip"
-                  style={{
-                    "--from-x": animation.x,
-                    "--from-y": animation.y,
-                    "--delay": animation.delay,
-                    "--duration": animation.duration,
-                  }}
-                >
-                  {phrase}
-                </span>
-              );
-            })}
+            {phrases.map((phrase, index) => (
+              <span key={phrase} className={`phrase-chip ${index < visibleCount ? "is-visible" : ""}`}>
+                {phrase}
+              </span>
+            ))}
           </div>
         </div>
       </section>
