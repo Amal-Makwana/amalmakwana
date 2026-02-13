@@ -42,7 +42,7 @@ const interestCards = [
   {
     title: "Consultancy",
     description:
-      "Helping teams solve strategic and operational challenges through tailored roadmaps, mentorship, and execution support.",
+      "Providing industry insights and perspectives that can be applied to enterprises to gain real value",
     palette: "from-emerald-500/20 via-cyan-500/10 to-blue-500/20",
     svg: (
       <svg viewBox="0 0 120 120" className="h-24 w-24" aria-hidden="true">
