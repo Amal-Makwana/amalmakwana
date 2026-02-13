@@ -3,7 +3,6 @@ export default function HomePage() {
     <div className="editorial">
       <section className="section-grid">
         <div className="space-y-6">
-          <p className="text-xs uppercase tracking-[0.28em] text-cyan-200/80">AI Native Portfolio</p>
           <h1>
             Hello
             <br />
