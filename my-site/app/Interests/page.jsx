@@ -65,18 +65,18 @@ export default function WorkPage() {
     <section className="space-y-8">
       <div className="max-w-2xl space-y-4">
         <h1 className="text-4xl font-semibold tracking-tight">Interests</h1>
-        <p className="text-lg text-black/70">A few areas where I love to contribute and collaborate.</p>
+        <p className="text-lg text-slate-200">A few areas where I love to contribute and collaborate.</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {interestCards.map((interest) => (
           <article
             key={interest.title}
-            className={`rounded-2xl border border-black/10 bg-gradient-to-br ${interest.palette} p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg`}
+            className={`rounded-2xl border border-white/20 bg-gradient-to-br ${interest.palette} p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg`}
           >
-            <div className="mb-4 flex justify-center rounded-xl bg-white/70 p-3 backdrop-blur">{interest.svg}</div>
-            <h2 className="mb-2 text-xl font-semibold text-black">{interest.title}</h2>
-            <p className="text-sm leading-relaxed text-black/75">{interest.description}</p>
+            <div className="mb-4 flex justify-center rounded-xl bg-white/80 p-3 backdrop-blur">{interest.svg}</div>
+            <h2 className="mb-2 text-xl font-semibold text-slate-100">{interest.title}</h2>
+            <p className="text-sm leading-relaxed text-slate-200">{interest.description}</p>
           </article>
         ))}
       </div>
