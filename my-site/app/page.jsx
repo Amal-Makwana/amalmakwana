@@ -2,7 +2,9 @@ export default function HomePage() {
   return (
     <div className="editorial">
       <section className="space-y-6">
-        <h1>Hello, I&apos;m Amal Makwana.</h1>
+        <h1>
+          Hello <span className="typewriter-line" aria-label="I'm Amal Makwana">I&apos;m Amal Makwana</span>
+        </h1>
         <p>
           I design and build thoughtful digital experiences. This space is where I share current
           work, writing, and ideas in progress.
