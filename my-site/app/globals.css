@@ -137,3 +137,31 @@ body {
     opacity: 0;
   }
 }
+
+.phrase-cloud {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.phrase-chip {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 420ms ease-out, transform 420ms ease-out;
+}
+
+.phrase-chip.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
