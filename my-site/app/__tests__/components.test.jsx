@@ -27,10 +27,13 @@ describe("App components", () => {
     expect(screen.getByText("Hello, I'm Amal Makwana.")).toBeVisible();
   });
 
-  it("renders WorkPage text", () => {
+  it("renders WorkPage interest cards", () => {
     render(<WorkPage />);
 
     expect(screen.getByText("Interests")).toBeVisible();
+    expect(screen.getByText("Speaking at Conferences")).toBeVisible();
+    expect(screen.getByText("Guest Lectures at university")).toBeVisible();
+    expect(screen.getByText("Consultancy")).toBeVisible();
   });
 
 
