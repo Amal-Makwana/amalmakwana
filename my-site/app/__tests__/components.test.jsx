@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
-import WorkPage from "@/app/work/page";
+import WorkPage from "@/app/Interests/page";
 import AboutPage from "@/app/about/page";
 import InterestPage from "@/app/Interest/page";
 import { SiteHeader } from "@/app/components/site-header";
