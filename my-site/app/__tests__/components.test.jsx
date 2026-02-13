@@ -10,7 +10,7 @@ describe("App components", () => {
   it("renders SiteHeader navigation links", () => {
     render(<SiteHeader />);
 
-    expect(screen.getByText("Home")).toBeVisible();
+    expect(screen.getByRole("link", { name: "HOME" })).toBeVisible();
     expect(screen.getByText("Interests")).toBeVisible();
     expect(screen.getByText("Contact me")).toBeVisible();
   });
@@ -24,7 +24,7 @@ describe("App components", () => {
   it("renders HomePage text", () => {
     render(<HomePage />);
 
-    expect(screen.getByText("Hello, I'm Amal Makwana.")).toBeVisible();
+    expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeVisible();
   });
 
   it("renders WorkPage interest cards", () => {
