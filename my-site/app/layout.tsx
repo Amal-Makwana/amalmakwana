@@ -7,7 +7,7 @@ export const metadata = {
   description: "Personal website of Amal Makwana"
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
