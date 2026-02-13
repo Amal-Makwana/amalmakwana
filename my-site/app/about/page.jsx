@@ -13,6 +13,15 @@ function LinkedInIcon(props) {
   );
 }
 
+export function buildEnquiryMailto(formData) {
+  const subject = encodeURIComponent(`Website enquiry from ${formData.name || "Visitor"}`);
+  const body = encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nReason: ${formData.reason}`
+  );
+
+  return `mailto:amal.makwana@gmail.com?subject=${subject}&body=${body}`;
+}
+
 export default function AboutPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -30,12 +39,8 @@ export default function AboutPage() {
   const handleEnquire = (event) => {
     event.preventDefault();
 
-    const subject = encodeURIComponent(`Website enquiry from ${formData.name || "Visitor"}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nReason: ${formData.reason}`
-    );
-
-    window.location.href = `mailto:amal.makwana@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoUrl = buildEnquiryMailto(formData);
+    window.open(mailtoUrl, "_self");
     setSubmitted(true);
   };
 
