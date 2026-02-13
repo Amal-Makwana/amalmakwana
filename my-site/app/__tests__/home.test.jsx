@@ -5,6 +5,6 @@ describe("HomePage", () => {
   it("renders the main heading text", () => {
     render(<HomePage />);
 
-    expect(screen.getByText("Hello, I'm Amal Makwana.")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeInTheDocument();
   });
 });

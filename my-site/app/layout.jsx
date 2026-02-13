@@ -7,13 +7,13 @@ export const metadata = {
   description: "Personal website of Amal Makwana"
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="container-shell flex-1 py-16 md:py-24">{children}</main>
+          <main className="container-shell flex-1 py-10 md:py-16">{children}</main>
           <SiteFooter />
         </div>
       </body>
