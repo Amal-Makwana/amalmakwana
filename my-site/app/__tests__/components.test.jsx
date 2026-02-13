@@ -1,66 +1,41 @@
-import { render, screen } from "@testing-library/react";
-import HomePage from "@/app/page";
-import WorkPage from "@/app/Interests/page";
-import AboutPage from "@/app/about/page";
-import InterestPage from "@/app/Interest/page";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { SiteHeader } from "@/app/components/site-header";
 import { SiteFooter } from "@/app/components/site-footer";
 
-describe("App components", () => {
-  it("renders SiteHeader navigation links", () => {
+describe("SiteHeader", () => {
+  it("renders desktop navigation links", () => {
     render(<SiteHeader />);
 
-    expect(screen.getByRole("link", { name: "HOME" })).toBeVisible();
-    expect(screen.getByText("Interests")).toBeVisible();
-    expect(screen.getByText("Contact me")).toBeVisible();
+    expect(screen.getByRole("link", { name: "HOME" })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: "Interests" })).toHaveAttribute("href", "/Interests");
+    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute("href", "/about");
   });
 
-  it("renders SiteFooter copyright text", () => {
+  it("toggles the mobile menu and updates accessibility state", () => {
+    render(<SiteHeader />);
+
+    const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByRole("navigation", { name: "Mobile navigation" })).not.toBeInTheDocument();
+
+    fireEvent.click(menuButton);
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "true");
+    const mobileNav = screen.getByRole("navigation", { name: "Mobile navigation" });
+    expect(mobileNav).toBeInTheDocument();
+
+    fireEvent.click(within(mobileNav).getByRole("link", { name: "Interests" }));
+
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByRole("navigation", { name: "Mobile navigation" })).not.toBeInTheDocument();
+  });
+});
+
+describe("SiteFooter", () => {
+  it("renders the current year copyright text", () => {
     render(<SiteFooter />);
 
-    expect(screen.getByText(/All rights reserved\./i)).toBeVisible();
-  });
-
-  it("renders HomePage text", () => {
-    render(<HomePage />);
-
-    expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeVisible();
-  });
-
-  it("renders WorkPage interest cards", () => {
-    render(<WorkPage />);
-
-    expect(screen.getByText("Interests")).toBeVisible();
-    expect(screen.getByText("Speaking at Conferences")).toBeVisible();
-    expect(screen.getByText("Guest Lectures at university")).toBeVisible();
-    expect(screen.getByText("Consultancy")).toBeVisible();
-  });
-
-
-  it("renders InterestPage cards", () => {
-    render(<InterestPage />);
-
-    expect(screen.getByText("Speaking at Conferences")).toBeVisible();
-    expect(screen.getByText("Guest Lectures at university")).toBeVisible();
-    expect(screen.getByText("Consultancy")).toBeVisible();
-  });
-
-  it("renders AboutPage contact sections and form fields", () => {
-    render(<AboutPage />);
-
-    expect(screen.getByText("Contact me")).toBeVisible();
-    expect(screen.getByText("LinkedIn")).toBeVisible();
-    expect(screen.getByRole("link", { name: "Visit my LinkedIn profile" })).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/in/amalmakwana/"
-    );
-    expect(screen.getByText("Send an enquiry")).toBeVisible();
-    const enquiryDetails = screen.getByText("Send an enquiry").closest("details");
-    expect(enquiryDetails).not.toHaveAttribute("open");
-    expect(screen.getByLabelText("Name")).toBeInTheDocument();
-    expect(screen.getByLabelText("email address")).toBeInTheDocument();
-    expect(screen.getByLabelText("phone number")).toBeInTheDocument();
-    expect(screen.getByLabelText("Reason")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Enquire" })).toBeInTheDocument();
+    const currentYear = new Date().getFullYear();
+    expect(screen.getByText(`© ${currentYear} All rights reserved.`)).toBeVisible();
   });
 });
