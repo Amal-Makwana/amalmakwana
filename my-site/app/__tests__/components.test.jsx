@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
 import WorkPage from "@/app/work/page";
 import AboutPage from "@/app/about/page";
+import InterestPage from "@/app/Interest/page";
 import { SiteHeader } from "@/app/components/site-header";
 import { SiteFooter } from "@/app/components/site-footer";
 
@@ -30,6 +31,15 @@ describe("App components", () => {
     render(<WorkPage />);
 
     expect(screen.getByText("Interests")).toBeVisible();
+  });
+
+
+  it("renders InterestPage cards", () => {
+    render(<InterestPage />);
+
+    expect(screen.getByText("Speaking at Conferences")).toBeVisible();
+    expect(screen.getByText("Guest Lectures at university")).toBeVisible();
+    expect(screen.getByText("Consultancy")).toBeVisible();
   });
 
   it("renders AboutPage contact sections and form fields", () => {
