@@ -6,12 +6,6 @@ const articles = [
     description:
       "A practical summary of how agentic systems are evolving from experiments into structured production programs.",
     link: "/articles/agentic-autonomous-systems"
-  },
-  {
-    title: "Original LinkedIn publication",
-    description: "Read the full article on LinkedIn.",
-    link: "https://www.linkedin.com/pulse/agentic-autonomous-systems-moving-from-ai-experiments-amal-makwana-anvfe/",
-    external: true
   }
 ];
 

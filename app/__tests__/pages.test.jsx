@@ -15,12 +15,6 @@ describe("HomePage", () => {
     expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeInTheDocument();
   });
 
-  it("includes an articles section with a link", () => {
-    render(<HomePage />);
-
-    expect(screen.getByRole("heading", { name: "Articles" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Go to Articles" })).toHaveAttribute("href", "/articles");
-  });
 });
 
 describe("Interests page", () => {
@@ -56,7 +50,7 @@ describe("AboutPage", () => {
 });
 
 describe("ArticlesPage", () => {
-  it("renders article cards with internal and external links", () => {
+  it("renders an article card with an internal link", () => {
     render(<ArticlesPage />);
 
     expect(screen.getByRole("heading", { name: "Articles" })).toBeInTheDocument();
@@ -67,12 +61,7 @@ describe("ArticlesPage", () => {
     expect(localArticleLink).toHaveAttribute("href", "/articles/agentic-autonomous-systems");
     expect(localArticleLink).not.toHaveAttribute("target", "_blank");
 
-    const externalArticleLink = screen.getByRole("link", { name: "Read article: Original LinkedIn publication" });
-    expect(externalArticleLink).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/pulse/agentic-autonomous-systems-moving-from-ai-experiments-amal-makwana-anvfe/"
-    );
-    expect(externalArticleLink).toHaveAttribute("target", "_blank");
+    expect(screen.queryByRole("link", { name: "Read article: Original LinkedIn publication" })).not.toBeInTheDocument();
   });
 });
 
