@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
-  { href: "/Interests", label: "Interests" },
+  { href: "/interests", label: "Interests" },
   { href: "/articles", label: "Articles" },
   { href: "/about", label: "Contact Me" }
 ];
