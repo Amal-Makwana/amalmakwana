@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
-import InterestsPage from "@/app/Interests/page";
-import InterestPage from "@/app/Interest/page";
+import InterestsPage from "@/app/interests/page";
 import AboutPage from "@/app/about/page";
 import ArticlesPage from "@/app/articles/page";
 
@@ -16,14 +15,11 @@ describe("HomePage", () => {
   });
 });
 
-describe("Interests and Interest pages", () => {
-  it.each([
-    ["InterestsPage", InterestsPage, "Interests"],
-    ["InterestPage", InterestPage, "Interest"]
-  ])("%s renders all interest cards", (_, PageComponent, headingText) => {
-    render(<PageComponent />);
+describe("Interests page", () => {
+  it("renders all interest cards", () => {
+    render(<InterestsPage />);
 
-    expect(screen.getByRole("heading", { name: headingText })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Interests" })).toBeInTheDocument();
     interestCardTitles.forEach((title) => {
       expect(screen.getByRole("heading", { name: title })).toBeInTheDocument();
     });
