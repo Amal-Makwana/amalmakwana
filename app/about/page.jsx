@@ -53,14 +53,14 @@ export default function AboutPage() {
           to share your preferred contact details.
         </p>
 
-        <details className="rounded-md border border-white/25 bg-white/5 p-4" open>
-          <summary className="cursor-pointer text-sm font-medium text-slate-100">LinkedIn</summary>
+        <details className="rounded-md border border-white/25 bg-white/5 p-4 sm:p-5" open>
+          <summary className="cursor-pointer py-1 text-sm font-medium text-slate-100">LinkedIn</summary>
           <div className="mt-4">
             <a
               href="https://www.linkedin.com/in/amalmakwana/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#0A66C2] hover:opacity-85"
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#0A66C2] hover:opacity-85"
             >
               <LinkedInIcon className="h-6 w-6" />
               <span>Visit my LinkedIn profile</span>
@@ -68,8 +68,8 @@ export default function AboutPage() {
           </div>
         </details>
 
-        <details className="rounded-md border border-white/25 bg-white/5 p-4">
-          <summary className="cursor-pointer text-sm font-medium text-slate-100">Send an enquiry</summary>
+        <details className="rounded-md border border-white/25 bg-white/5 p-4 sm:p-5">
+          <summary className="cursor-pointer py-1 text-sm font-medium text-slate-100">Send an enquiry</summary>
           <form className="mt-4 space-y-4" onSubmit={handleEnquire}>
             <div className="space-y-1">
               <label htmlFor="name" className="block text-sm font-medium text-slate-200">
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-slate-100"
+                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
                 required
               />
             </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-slate-100"
+                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
                 required
               />
             </div>
@@ -111,7 +111,7 @@ export default function AboutPage() {
                 type="tel"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-slate-100"
+                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
                 required
               />
             </div>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 name="reason"
                 value={formData.reason}
                 onChange={handleChange}
-                className="w-full rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-slate-100"
+                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
                 rows={4}
                 required
               />
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
             <button
               type="submit"
-              className="rounded-md bg-cyan-500 px-4 py-2 text-sm font-medium text-slate-950 transition-opacity hover:opacity-85"
+              className="min-h-11 rounded-md bg-cyan-500 px-5 py-2 text-sm font-medium text-slate-950 transition-opacity hover:opacity-85"
             >
               Enquire
             </button>
