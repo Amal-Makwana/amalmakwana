@@ -24,7 +24,7 @@ export default function HomePage() {
 
         return current + 1;
       });
-    }, 280);
+    }, window.innerWidth < 640 ? 360 : 280);
 
     return () => clearInterval(revealInterval);
   }, []);
