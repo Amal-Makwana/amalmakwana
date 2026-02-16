@@ -9,7 +9,7 @@ describe("SiteHeader", () => {
     expect(screen.getByRole("link", { name: "HOME" })).toHaveAttribute("href", "/");
     expect(screen.getByRole("link", { name: "Interests" })).toHaveAttribute("href", "/interests");
     expect(screen.getByRole("link", { name: "Articles" })).toHaveAttribute("href", "/articles");
-    expect(screen.getByRole("link", { name: "Contact Me" })).toHaveAttribute("href", "/about");
+    expect(screen.getByRole("link", { name: "Contact Me" })).toHaveAttribute("href", "/contactme");
   });
 
   it("toggles the mobile menu and updates accessibility state", () => {

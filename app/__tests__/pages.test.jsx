@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
 import InterestsPage from "@/app/interests/page";
-import AboutPage from "@/app/about/page";
+import AboutPage from "@/app/contactme/page";
 import ArticlesPage from "@/app/articles/page";
 
 const interestCardTitles = ["Speaking at Conferences", "Guest Lectures at university", "Consultancy"];

@@ -6,7 +6,7 @@ import { useState } from "react";
 const navItems = [
   { href: "/interests", label: "Interests" },
   { href: "/articles", label: "Articles" },
-  { href: "/about", label: "Contact Me" }
+  { href: "/contactme", label: "Contact Me" }
 ];
 
 export function SiteHeader() {
