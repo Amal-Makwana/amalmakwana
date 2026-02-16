@@ -1,38 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import AboutPage, { buildEnquiryMailto } from "@/app/about/page";
+import HomePage from "@/app/page";
 
-describe("buildEnquiryMailto", () => {
-  it("builds a fully encoded mailto URL", () => {
-    const mailto = buildEnquiryMailto({
-      name: "Amal",
-      email: "amal@example.com",
-      phone: "+44 1234",
-      reason: "Let's collaborate"
-    });
-
-    expect(mailto).toContain("mailto:amal.makwana@gmail.com");
-    expect(mailto).toContain(encodeURIComponent("Website enquiry from Amal"));
-    expect(mailto).toContain(encodeURIComponent("Name: Amal"));
-    expect(mailto).toContain(encodeURIComponent("Email: amal@example.com"));
-  });
-
-  it("falls back to Visitor when the name is empty", () => {
-    const mailto = buildEnquiryMailto({
-      name: "",
-      email: "contact@example.com",
-      phone: "123",
-      reason: "Question"
-    });
-
-    expect(mailto).toContain(encodeURIComponent("Website enquiry from Visitor"));
-  });
-});
-
-describe("AboutPage enquiry form", () => {
+describe("Contact enquiry form on homepage", () => {
   it("updates each field, opens mailto and shows the submitted message", () => {
     const openSpy = jest.spyOn(window, "open").mockImplementation(() => null);
 
-    render(<AboutPage />);
+    render(<HomePage />);
 
     fireEvent.change(screen.getByLabelText("Name"), { target: { name: "name", value: "Amal" } });
     fireEvent.change(screen.getByLabelText("email address"), { target: { name: "email", value: "amal@example.com" } });

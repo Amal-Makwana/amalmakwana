@@ -7,11 +7,14 @@ import ArticlesPage from "@/app/articles/page";
 const interestCardTitles = ["Speaking at Conferences", "Guest Lectures at university", "Consultancy"];
 
 describe("HomePage", () => {
-  it("renders hero heading and intro label", () => {
-    render(<HomePage />);
+  it("renders single-page sections with required anchor ids", () => {
+    const { container } = render(<HomePage />);
 
+    expect(container.querySelector("#hero")).toBeInTheDocument();
+    expect(container.querySelector("#interests")).toBeInTheDocument();
+    expect(container.querySelector("#articles")).toBeInTheDocument();
+    expect(container.querySelector("#contact")).toBeInTheDocument();
     expect(screen.getByLabelText("Professional roles and interests")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeInTheDocument();
   });
 });
 
@@ -28,22 +31,11 @@ describe("Interests page", () => {
 });
 
 describe("AboutPage", () => {
-  it("renders contact sections and all form fields", () => {
+  it("points users to the homepage contact section", () => {
     render(<AboutPage />);
 
     expect(screen.getByRole("heading", { name: "Contact me" })).toBeInTheDocument();
-    expect(screen.getByText("LinkedIn")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Visit my LinkedIn profile" })).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/in/amalmakwana/"
-    );
-
-    expect(screen.getByText("Send an enquiry")).toBeInTheDocument();
-    expect(screen.getByLabelText("Name")).toBeRequired();
-    expect(screen.getByLabelText("email address")).toBeRequired();
-    expect(screen.getByLabelText("phone number")).toBeRequired();
-    expect(screen.getByLabelText("Reason")).toBeRequired();
-    expect(screen.getByRole("button", { name: "Enquire" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Go to contact section" })).toHaveAttribute("href", "/#contact");
   });
 });
 
