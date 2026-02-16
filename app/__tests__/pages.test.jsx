@@ -3,7 +3,7 @@ import HomePage from "@/app/page";
 import InterestsPage from "@/app/Interests/page";
 import InterestPage from "@/app/Interest/page";
 import AboutPage from "@/app/about/page";
-import ArticlesPage from "@/app/Articles/page";
+import ArticlesPage from "@/app/articles/page";
 
 const interestCardTitles = ["Speaking at Conferences", "Guest Lectures at university", "Consultancy"];
 
@@ -11,7 +11,7 @@ describe("HomePage", () => {
   it("renders hero heading and intro label", () => {
     render(<HomePage />);
 
-    expect(screen.getByText("AI Native Portfolio")).toBeInTheDocument();
+    expect(screen.getByLabelText("Professional roles and interests")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeInTheDocument();
   });
 });
@@ -52,10 +52,17 @@ describe("AboutPage", () => {
 });
 
 describe("ArticlesPage", () => {
-  it("renders section heading and supporting copy", () => {
+  it("renders article cards with external links", () => {
     render(<ArticlesPage />);
 
     expect(screen.getByRole("heading", { name: "Articles" })).toBeInTheDocument();
-    expect(screen.getByText("Share your writing, notes, and article summaries in this section.")).toBeInTheDocument();
+    const articleLink = screen.getByRole("link", {
+      name: "Read article: Agentic Autonomous Systems: Moving from AI Experiments to Real-World Impact"
+    });
+    expect(articleLink).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/pulse/agentic-autonomous-systems-moving-from-ai-experiments-amal-makwana-anvfe/"
+    );
+    expect(articleLink).toHaveAttribute("target", "_blank");
   });
 });

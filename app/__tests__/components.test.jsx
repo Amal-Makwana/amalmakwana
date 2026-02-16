@@ -8,7 +8,8 @@ describe("SiteHeader", () => {
 
     expect(screen.getByRole("link", { name: "HOME" })).toHaveAttribute("href", "/");
     expect(screen.getByRole("link", { name: "Interests" })).toHaveAttribute("href", "/Interests");
-    expect(screen.getByRole("link", { name: "Contact me" })).toHaveAttribute("href", "/about");
+    expect(screen.getByRole("link", { name: "Articles" })).toHaveAttribute("href", "/articles");
+    expect(screen.getByRole("link", { name: "Contact Me" })).toHaveAttribute("href", "/about");
   });
 
   it("toggles the mobile menu and updates accessibility state", () => {
