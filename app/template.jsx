@@ -5,7 +5,10 @@ import { usePathname } from "next/navigation";
 
 export default function Template({ children }) {
   const pathname = usePathname();
-  const isSmallScreen = typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches;
+  const isSmallScreen =
+    typeof window !== "undefined" && typeof window.matchMedia === "function"
+      ? window.matchMedia("(max-width: 640px)").matches
+      : false;
 
   const motionVariants = isSmallScreen
     ? {
