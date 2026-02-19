@@ -99,6 +99,7 @@ body {
   --intro-delay: 220ms;
   position: relative;
   display: inline-block;
+  white-space: nowrap;
   opacity: 0;
   transform: translateX(42px);
   vertical-align: baseline;

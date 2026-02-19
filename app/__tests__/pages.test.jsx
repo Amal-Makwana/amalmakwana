@@ -26,6 +26,15 @@ describe("HomePage", () => {
     expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeInTheDocument();
   });
 
+  it("keeps the intro name text on a single line", () => {
+    const { container } = render(<HomePage />);
+
+    const introLine = container.querySelector(".intro-line");
+    expect(introLine).toBeInTheDocument();
+    expect(introLine).toHaveTextContent("I'm Amal Makwana");
+    expect(introLine?.textContent).not.toContain("\n");
+  });
+
   it("uses the updated intro and skill typing classes", () => {
     const { container } = render(<HomePage />);
 
