@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import HomePage from "@/app/page";
 import InterestsPage from "@/app/interests/page";
 import AboutPage from "@/app/contactme/page";
@@ -8,6 +8,17 @@ import AgenticAutonomousSystemsPage from "@/app/articles/agentic-autonomous-syst
 const interestCardTitles = ["Speaking at Conferences", "Guest Lectures at university", "Consultancy"];
 
 describe("HomePage", () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    jest.useRealTimers();
+  });
+
   it("renders hero heading and intro label", () => {
     render(<HomePage />);
 
@@ -15,6 +26,36 @@ describe("HomePage", () => {
     expect(screen.getByRole("heading", { name: /hello\s*i'm amal makwana/i })).toBeInTheDocument();
   });
 
+  it("uses the updated intro and skill typing classes", () => {
+    const { container } = render(<HomePage />);
+
+    expect(container.querySelector(".intro-line")).toBeInTheDocument();
+    expect(container.querySelector(".phrase-chip.phrase-typing")).toBeInTheDocument();
+  });
+
+  it("starts skill typing only after intro delay and then types tags in place", () => {
+    const { container } = render(<HomePage />);
+
+    const skillTyping = container.querySelector(".phrase-typing");
+    expect(skillTyping).toBeInTheDocument();
+    expect(skillTyping?.textContent).toBe("\u00A0");
+
+    act(() => {
+      jest.advanceTimersByTime(1120);
+    });
+    expect(skillTyping?.textContent).toBe("\u00A0");
+
+    act(() => {
+      jest.advanceTimersByTime(85);
+    });
+    expect(skillTyping).toHaveTextContent("A");
+
+    act(() => {
+      jest.advanceTimersByTime(170);
+    });
+
+    expect(skillTyping).toHaveTextContent("Av");
+  });
 });
 
 describe("Interests page", () => {
