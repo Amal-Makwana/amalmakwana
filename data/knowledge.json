@@ -1,63 +1,249 @@
 {
   "person": {
     "name": "Amal Makwana",
-    "headline": "Engineering leader and AI enthusiast",
-    "summary": "Amal Makwana is a technology professional focused on engineering leadership, digital transformation, product delivery, and applied AI.",
-    "location": "India"
+    "headline": "Senior Engineering Leader | Cloud-Native Architect | GenAI & Platform Transformation Strategist",
+    "summary": "Amal Makwana is a UK-based Senior Technology Leader with nearly 20 years of experience delivering large-scale, mission-critical financial platforms across global markets. He combines deep hands-on engineering expertise with strategic programme leadership, cloud-native architecture, regulatory delivery, and GenAI-driven transformation. Amal has built and scaled multi-geography teams, modernised legacy platforms into event-driven microservices architectures, and led AI adoption initiatives (Copilot, LLMs, RAG, MCP) to enhance developer productivity and platform scalability.",
+    "location": "United Kingdom",
+    "citizenship": "British Citizen"
   },
+
   "professional_background": [
     {
-      "title": "Engineering Manager",
-      "description": "Leads cross-functional engineering teams and drives delivery execution using agile practices.",
-      "highlights": [
-        "Team leadership and mentoring",
-        "Roadmap planning",
-        "Stakeholder communication"
+      "title": "Senior Manager – Engineering & Delivery",
+      "organisation": "Citi",
+      "focus_areas": [
+        "Cloud-native microservices architecture",
+        "Platform modernisation",
+        "GenAI adoption",
+        "Global engineering leadership"
+      ],
+      "responsibilities": [
+        "Built and scaled cross-functional engineering teams (frontend, backend, business analysts) across NAM, EMEA, and APAC",
+        "Owned end-to-end application architecture including microservices, REST APIs, Kafka, MQ, and Oracle-based distributed systems",
+        "Established SDLC standards, CI/CD pipelines, production readiness frameworks, and engineering governance",
+        "Led adoption of GenAI tools (GitHub Copilot, Devin, LLMs, RAG, MCP) to improve developer productivity and delivery predictability",
+        "Managed vendors, budgets, performance governance, and stakeholder engagement at executive level",
+        "Ensured compliance with internal audit, regulatory, and risk frameworks"
+      ],
+      "impact": [
+        "Delivered custody modernisation programme transforming legacy systems into fault-tolerant, event-driven architecture",
+        "Launched Custody Data Manager platform improving operational efficiency and data availability",
+        "Established platform, team, and delivery governance in record time"
       ]
     },
     {
-      "title": "Transformation Lead",
-      "description": "Supports enterprise transformation programs with process modernization and delivery improvements.",
-      "highlights": [
-        "Operational excellence",
-        "Change management",
-        "Strategic planning"
+      "title": "Project Manager / Product Manager",
+      "organisation": "Citi",
+      "focus_areas": [
+        "Regulatory delivery",
+        "Collateral transformation",
+        "Client migrations",
+        "Product ownership"
+      ],
+      "responsibilities": [
+        "Led Uncleared Margin Rules (UMR) regulatory programme meeting mandatory global deadlines",
+        "Migrated 25+ institutional clients to modern collateral platforms",
+        "Owned roadmap planning, backlog prioritisation, dependency management, and RAID governance",
+        "Ran Steering Committees and Operating Committees",
+        "Managed front-to-back delivery including analysis, testing, vendor onboarding, and production"
+      ],
+      "impact": [
+        "Delivered UMR regulatory compliance on time",
+        "Received multiple Gratitude Platinum, Gold, Silver and Applause awards",
+        "Improved collateral optimisation through simulation and analytics platforms"
       ]
     },
     {
-      "title": "Product Owner",
-      "description": "Owns product direction and prioritizes user-centered features aligned with business goals.",
-      "highlights": [
-        "Backlog management",
-        "Requirements definition",
-        "Value-driven prioritization"
+      "title": "Engineering Manager / Delivery Lead",
+      "organisation": "Citi",
+      "focus_areas": [
+        "Market Access platforms",
+        "Platform replacement",
+        "Cost optimisation"
+      ],
+      "responsibilities": [
+        "Led development of Market Access Gateway replacing high-cost vendor platforms",
+        "Migrated 20+ markets across NAM, EMEA, APAC",
+        "Owned production readiness, support handover, and runbook frameworks",
+        "Implemented JIRA workflows and delivery automation"
+      ],
+      "impact": [
+        "Improved stability and time-to-market",
+        "Delivered USD 1M cost savings"
+      ]
+    },
+    {
+      "title": "Project Manager / Business Analyst",
+      "organisation": "Barclays",
+      "focus_areas": [
+        "Digital banking transformation",
+        "Mobile banking",
+        "Internet banking platforms"
+      ],
+      "responsibilities": [
+        "Delivered front-to-back digital banking programmes across 10+ markets",
+        "Managed scope, budgets (~USD 5M), vendors, and governance",
+        "Led internet and mobile banking transformation (USSD, iOS, Android)",
+        "Delivered imaging & workflow digitisation initiatives"
       ]
     }
   ],
+
+  "architecture_and_engineering_expertise": {
+    "languages_and_frameworks": [
+      "Java",
+      "Spring",
+      "Spring Boot",
+      "React",
+      "REST APIs"
+    ],
+    "event_and_messaging": [
+      "Apache Kafka",
+      "IBM MQ",
+      "Event-driven architecture"
+    ],
+    "databases": [
+      "Oracle",
+      "Distributed data platforms"
+    ],
+    "architecture_patterns": [
+      "Microservices",
+      "Cloud-native design",
+      "High availability systems",
+      "Fault-tolerant systems",
+      "Platform engineering",
+      "Domain-driven design (inferred)"
+    ],
+    "devops_and_sdlc": [
+      "CI/CD",
+      "Continuous Delivery",
+      "Production Readiness",
+      "Runbooks",
+      "GitHub",
+      "Agile (Scrum, SAFe)",
+      "SDLC governance"
+    ]
+  },
+
+  "genai_and_ai_capabilities": {
+    "tools_and_platforms": [
+      "GitHub Copilot",
+      "Devin",
+      "OpenAI LLMs",
+      "Retrieval-Augmented Generation (RAG)",
+      "Model Context Protocol (MCP)"
+    ],
+    "use_cases": [
+      "Developer productivity automation",
+      "Code generation and review acceleration",
+      "Knowledge retrieval augmentation",
+      "Proof of Concept design for AI-enhanced platforms",
+      "Workflow optimisation using AI agents (inferred)"
+    ],
+    "strategic_focus": [
+      "AI adoption at enterprise scale",
+      "Responsible AI governance (inferred)",
+      "Embedding GenAI into SDLC",
+      "AI-driven platform scalability"
+    ]
+  },
+
+  "domain_expertise": [
+    "Custody platforms",
+    "Collateral management",
+    "Uncleared Margin Rules (UMR)",
+    "Regulatory transformation",
+    "Market Access systems",
+    "Client onboarding & migration",
+    "Financial services technology",
+    "Digital banking platforms"
+  ],
+
+  "leadership_and_governance": [
+    "Multi-geography team leadership (NAM, EMEA, APAC)",
+    "Executive stakeholder engagement",
+    "Vendor onboarding & governance",
+    "Budget ownership & cost optimisation",
+    "Programme & portfolio management",
+    "RAID management",
+    "Steering committee leadership",
+    "Regulatory compliance delivery",
+    "Hiring & technical coaching",
+    "Engineering capability building"
+  ],
+
   "projects": [
     {
-      "name": "Personal Website",
-      "description": "Portfolio website that showcases Amal Makwana's profile, interests, and contact channels.",
-      "tech_stack": ["Next.js", "React", "Tailwind CSS"]
+      "name": "Custody Modernisation Platform",
+      "description": "Transformation of legacy custody systems into a Kafka-based, fault-tolerant microservices architecture supporting traditional and digital assets.",
+      "tech_stack": ["Java", "Spring Boot", "Kafka", "Oracle", "React", "Cloud-native architecture"]
     },
     {
-      "name": "AI Chatbot Integration",
-      "description": "A retrieval-augmented chatbot that answers questions only about Amal Makwana using OpenAI embeddings and chat completions.",
-      "tech_stack": ["OpenAI API", "Node.js", "React"]
-    }
-  ],
-  "expertise": [
-    "Engineering management",
-    "Agile delivery",
-    "Digital transformation",
-    "Product ownership",
-    "AI adoption"
-  ],
-  "education_or_certifications": [
+      "name": "Custody Data Manager",
+      "description": "Centralised client and reference data platform improving data availability and operational efficiency across custody applications.",
+      "tech_stack": ["Microservices", "Distributed Systems", "Oracle", "Event-driven architecture"]
+    },
     {
-      "name": "Agile and Product Leadership Development",
-      "description": "Ongoing professional development in agile product and delivery practices."
+      "name": "Collateral Optimisation Simulator",
+      "description": "Portfolio-level optimisation engine improving collateral efficiency and regulatory compliance.",
+      "tech_stack": ["Financial analytics", "Simulation models", "Cloud-based architecture"]
+    },
+    {
+      "name": "AI Productivity Enablement Initiative",
+      "description": "Enterprise adoption of GenAI tools (Copilot, LLMs, RAG) to accelerate development cycles and improve delivery predictability.",
+      "tech_stack": ["OpenAI APIs", "RAG", "Copilot", "Internal tooling automation"]
     }
   ],
+
+  "certifications": [
+    "AWS Certified Cloud Practitioner (CLF-C02)",
+    "AWS Certified AI Practitioner (AIF-C01)",
+    "PMP – Project Management Professional",
+    "Certified Scrum Product Owner (CSPO)",
+    "Certified Scrum Master (CSM)",
+    "ICAgile Certified Professional (ICP)",
+    "ICAgile Agile Project Management (ICP-APM)",
+    "AI For Business – University of Pennsylvania"
+  ],
+
+  "education": [
+    {
+      "degree": "MBA",
+      "institution": "IIM Mumbai",
+      "distinction": "Gold Medalist",
+      "cgpa": "8.5"
+    },
+    {
+      "degree": "Bachelor of Engineering – Computer Science",
+      "institution": "SGSITS Indore",
+      "distinction": "Honours",
+      "percentage": "82.1%"
+    }
+  ],
+
+  "awards_and_recognition": [
+    "Gratitude Platinum Award",
+    "Gratitude Gold Award",
+    "Gratitude Silver Award",
+    "Multiple Applause Awards",
+    "Gold Medal – MBA"
+  ],
+
+  "strategic_positioning": {
+    "current_focus": [
+      "Enterprise GenAI enablement",
+      "Platform modernisation",
+      "Engineering excellence at scale",
+      "Cloud-native transformation"
+    ],
+    "target_roles": [
+      "Senior Engineering Manager",
+      "Head of Engineering",
+      "Director of Technology",
+      "Platform Transformation Lead",
+      "AI-Enabled Engineering Leader"
+    ]
+  },
+
   "last_updated": "2026-02-19"
 }
