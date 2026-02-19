@@ -94,39 +94,31 @@ body {
   @apply text-base leading-7;
 }
 
-.typewriter-line {
-  --typewriter-duration: 2.3s;
+.intro-line {
+  --intro-duration: 900ms;
+  --intro-delay: 220ms;
   position: relative;
   display: inline-block;
-  width: 0;
-  overflow: hidden;
   white-space: nowrap;
+  opacity: 0;
+  transform: translateX(42px);
   vertical-align: baseline;
   font: inherit;
-  color: inherit;
-  animation: typing var(--typewriter-duration) steps(16, end) 250ms forwards;
   color: #8af6ff;
   text-shadow: 0 0 16px rgba(78, 244, 255, 0.45);
+  animation: slide-in-intro var(--intro-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--intro-delay) forwards;
 }
 
-.typewriter-line::after {
-  content: "";
-  position: absolute;
-  right: -0.1em;
-  top: 0.1em;
-  width: 2px;
-  height: 0.85em;
-  background: #b497ff;
-  animation: blink-caret 0.75s step-end infinite;
-}
 
-@keyframes typing {
+@keyframes slide-in-intro {
   from {
-    width: 0;
+    opacity: 0;
+    transform: translateX(42px);
   }
 
   to {
-    width: 16ch;
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -150,53 +142,58 @@ body {
 
 .phrase-chip {
   display: inline-block;
-  padding: 0.3rem 0.75rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
-  font-size: 0.88rem;
+  font-size: 1.76rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  line-height: 1.1;
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 420ms ease-out, transform 420ms ease-out;
+  line-height: 1.15;
+  transition: opacity 220ms ease-out;
 }
 
-.phrase-chip.is-visible {
+.phrase-typing {
+  min-width: 15ch;
+  text-align: left;
   opacity: 1;
-  transform: translateX(0);
+}
+
+.phrase-typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  margin-left: 0.14em;
+  vertical-align: -0.08em;
+  background: #9f87ff;
+  animation: blink-caret 0.75s step-end infinite;
 }
 
 @media (max-width: 640px) {
-  .typewriter-line {
-    --typewriter-duration: 1.4s;
+  .intro-line {
+    --intro-duration: 720ms;
+    --intro-delay: 140ms;
   }
 
-  .typewriter-line::after {
-    animation-duration: 1.1s;
-    opacity: 0.7;
-  }
-
-  .phrase-chip {
-    transition-duration: 260ms;
-    transform: translateX(10px);
+  .phrase-typing {
+    min-width: 13ch;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .typewriter-line {
-    width: auto;
+  .intro-line {
+    opacity: 1;
+    transform: none;
     animation: none;
   }
 
-  .typewriter-line::after {
+  .phrase-typing::after {
     display: none;
   }
 
   .phrase-chip {
-    transform: none;
     transition: opacity 180ms ease-out;
   }
 }
