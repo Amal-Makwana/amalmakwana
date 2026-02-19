@@ -1,12 +1,20 @@
 # Amal Makwana - Personal Site
 
-This is a Next.js portfolio/personal website.
+This is a Next.js portfolio/personal website with an AI chatbot that answers only questions about Amal Makwana.
 
 ## Run locally
 
 ### Prerequisites
-- Node.js 20.x (matches Netlify config)
-- npm (comes with Node)
+- Node.js 20.x
+- npm
+- OpenAI API key
+
+### Environment variables
+Create a `.env.local` file in the project root:
+
+```bash
+OPENAI_API_KEY=your_openai_api_key
+```
 
 ### Steps
 1. Install dependencies:
@@ -21,70 +29,34 @@ npm install
 npm run dev
 ```
 
-3. Open the app in your browser:
+3. Open the app:
 
 ```text
 http://localhost:3000
 ```
 
-### Useful local commands
+## AI Chatbot architecture
+- `data/knowledge.json` stores structured knowledge.
+- Server creates chunks from sections and embeds them using OpenAI embeddings.
+- Query retrieval uses in-memory cosine similarity over cached embeddings.
+- `/api/chat` returns responses constrained to Amal-specific context.
+- Prompt-injection patterns are blocked and unrelated questions return a fixed fallback sentence.
+
+## Useful local commands
 - Run tests:
 
 ```bash
 npm test
 ```
 
-- Build a production static export:
+- Run lint:
+
+```bash
+npm run lint
+```
+
+- Build:
 
 ```bash
 npm run build
 ```
-
-The project is configured with `output: "export"`, so production build output is generated in the `out/` folder.
-
-## Deploy on Netlify
-
-This repository already includes a `netlify.toml` with:
-- build command: `npm run build`
-- publish directory: `out`
-- Node version: `20`
-
-### Option A: Deploy with Netlify UI
-1. Push this repo to GitHub/GitLab/Bitbucket.
-2. In Netlify, click **Add new site** -> **Import an existing project**.
-3. Select your repository.
-4. Confirm the build settings:
-   - **Build command**: `npm run build`
-   - **Publish directory**: `out`
-   - **Node version**: `20` (or leave empty if `netlify.toml` is detected)
-5. Click **Deploy site**.
-
-### Option B: Deploy with Netlify CLI
-1. Install Netlify CLI (global):
-
-```bash
-npm install -g netlify-cli
-```
-
-2. Login:
-
-```bash
-netlify login
-```
-
-3. Initialize and deploy:
-
-```bash
-netlify init
-netlify deploy --build
-```
-
-4. For production deployment:
-
-```bash
-netlify deploy --build --prod
-```
-
-## Notes
-- Static pages are exported at build time, which is compatible with Netlify's static hosting.
-- If you add environment variables later, set them in **Site configuration -> Environment variables** on Netlify.

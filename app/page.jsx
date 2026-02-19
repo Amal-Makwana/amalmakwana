@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Chatbot from "@/app/components/chatbot";
 
 const phrases = [
   "Avid Learner",
@@ -89,6 +90,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <Chatbot />
     </div>
   );
 }
