@@ -11,23 +11,65 @@ const phrases = [
   "Agile Expert",
 ];
 
+const introAnimationDurationMs = 900;
+const introAnimationDelayMs = 220;
+const typingSpeedMs = 85;
+const deletingSpeedMs = 45;
+const phrasePauseMs = 1300;
+const betweenPhraseMs = 280;
+
 export default function HomePage() {
-  const [visibleCount, setVisibleCount] = useState(0);
+  const [hasStartedSkillTyping, setHasStartedSkillTyping] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const revealInterval = setInterval(() => {
-      setVisibleCount((current) => {
-        if (current >= phrases.length) {
-          clearInterval(revealInterval);
-          return current;
-        }
+    const startSkillsDelay = setTimeout(() => {
+      setHasStartedSkillTyping(true);
+    }, introAnimationDelayMs + introAnimationDurationMs);
 
-        return current + 1;
-      });
-    }, window.innerWidth < 640 ? 360 : 280);
-
-    return () => clearInterval(revealInterval);
+    return () => clearTimeout(startSkillsDelay);
   }, []);
+
+  useEffect(() => {
+    if (!hasStartedSkillTyping) {
+      return;
+    }
+
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!isDeleting && typedText.length < currentPhrase.length) {
+      const typingTimeout = setTimeout(() => {
+        setTypedText(currentPhrase.slice(0, typedText.length + 1));
+      }, typingSpeedMs);
+
+      return () => clearTimeout(typingTimeout);
+    }
+
+    if (!isDeleting && typedText.length === currentPhrase.length) {
+      const pauseTimeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, phrasePauseMs);
+
+      return () => clearTimeout(pauseTimeout);
+    }
+
+    if (isDeleting && typedText.length > 0) {
+      const deletingTimeout = setTimeout(() => {
+        setTypedText(currentPhrase.slice(0, typedText.length - 1));
+      }, deletingSpeedMs);
+
+      return () => clearTimeout(deletingTimeout);
+    }
+
+    const nextPhraseTimeout = setTimeout(() => {
+      setIsDeleting(false);
+      setPhraseIndex((currentIndex) => (currentIndex + 1) % phrases.length);
+    }, betweenPhraseMs);
+
+    return () => clearTimeout(nextPhraseTimeout);
+  }, [hasStartedSkillTyping, isDeleting, phraseIndex, typedText]);
 
   return (
     <div className="editorial">
@@ -36,16 +78,14 @@ export default function HomePage() {
           <h1>
             Hello
             <br />
-            <span className="typewriter-line" aria-label="I'm Amal Makwana">
+            <span className="intro-line" aria-label="I'm Amal Makwana">
               I&apos;m Amal Makwana
             </span>
           </h1>
           <div className="phrase-cloud" aria-label="Professional roles and interests">
-            {phrases.map((phrase, index) => (
-              <span key={phrase} className={`phrase-chip ${index < visibleCount ? "is-visible" : ""}`}>
-                {phrase}
-              </span>
-            ))}
+            <span className="phrase-chip phrase-typing" aria-live="polite">
+              {typedText || "\u00A0"}
+            </span>
           </div>
         </div>
       </section>
