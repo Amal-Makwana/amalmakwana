@@ -41,7 +41,7 @@ http://localhost:3000
 - `/api/chat` calls Groq via the OpenAI-compatible SDK client.
 - This repo currently uses the App Router implementation at `app/api/chat/route.js` for `/api/chat`.
 - If your project uses Pages Router instead, rename `pages/api/chat.js.example` to `pages/api/chat.js` and remove `app/api/chat/route.js` to avoid Next.js route conflicts.
-- Model used: `llama3-8b-8192`.
+- Model used: `llama-3.1-8b-instant`.
 - Prompt-injection patterns are blocked and unrelated questions return a fixed fallback sentence.
 
 ## Useful local commands
