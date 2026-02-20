@@ -48,14 +48,15 @@ async function callChatCompletion({ client, systemPrompt, userMessage }) {
   return completion.choices?.[0]?.message?.content?.trim() || FALLBACK_MESSAGE;
 }
 
-export async function POST(request) {
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed." });
+  }
+
   const apiKey = process.env.GROQ_API_KEY;
 
   if (!apiKey) {
-    return Response.json(
-      { error: "GROQ_API_KEY is not configured on the server." },
-      { status: 500 },
-    );
+    return res.status(500).json({ error: "GROQ_API_KEY is not configured on the server." });
   }
 
   const client = new OpenAI({
@@ -64,21 +65,20 @@ export async function POST(request) {
   });
 
   try {
-    const body = await request.json();
-    const userMessage = body?.message?.trim();
+    const userMessage = req.body?.message?.trim();
 
     if (!userMessage) {
-      return Response.json({ error: "Message is required." }, { status: 400 });
+      return res.status(400).json({ error: "Message is required." });
     }
 
     if (hasPromptInjectionAttempt(userMessage)) {
-      return Response.json({ reply: FALLBACK_MESSAGE }, { status: 200 });
+      return res.status(200).json({ reply: FALLBACK_MESSAGE });
     }
 
     const topChunks = await retrieveTopChunks(userMessage, 3);
 
     if (!topChunks.length || topChunks[0].score < 0.15) {
-      return Response.json({ reply: FALLBACK_MESSAGE }, { status: 200 });
+      return res.status(200).json({ reply: FALLBACK_MESSAGE });
     }
 
     const systemPrompt = buildSystemPrompt(topChunks);
@@ -88,19 +88,16 @@ export async function POST(request) {
       userMessage,
     });
 
-    return Response.json({ reply }, { status: 200 });
+    return res.status(200).json({ reply });
   } catch (error) {
-    console.error("[/api/chat] Failed to process chat request", {
+    console.error("[pages/api/chat] Failed to process chat request", {
       message: error?.message,
       stack: error?.stack,
     });
 
-    return Response.json(
-      {
-        error: "Unable to process your request right now.",
-        detail: error?.message || "Unknown error",
-      },
-      { status: 500 },
-    );
+    return res.status(500).json({
+      error: "Unable to process your request right now.",
+      detail: error?.message || "Unknown error",
+    });
   }
 }
