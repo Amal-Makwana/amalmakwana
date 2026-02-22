@@ -39,7 +39,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="section-shell" aria-labelledby="contact-heading">
-      <div className="container-shell py-20">
+      <div className="container-shell py-14">
         <h2 id="contact-heading" className="section-title">Contact Me</h2>
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           <div className="tech-card p-6">

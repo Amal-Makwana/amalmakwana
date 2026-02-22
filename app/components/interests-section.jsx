@@ -39,7 +39,7 @@ const interestCards = [
 export default function InterestsSection() {
   return (
     <section id="interests" className="section-shell" aria-labelledby="interests-heading">
-      <div className="container-shell py-20">
+      <div className="container-shell py-14">
         <h2 id="interests-heading" className="section-title">Interests</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {interestCards.map((interest) => (

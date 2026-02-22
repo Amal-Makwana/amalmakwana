@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
-  { href: "#chatbot", label: "My Chatbot" },
-  { href: "#interests", label: "Interests" },
-  { href: "#articles", label: "Articles" },
-  { href: "#contact", label: "Contact Me" }
+  { href: "/#chatbot", label: "My Chatbot" },
+  { href: "/#interests", label: "Interests" },
+  { href: "/#articles", label: "Articles" },
+  { href: "/#contact", label: "Contact Me" }
 ];
 
 export function SiteHeader() {
@@ -17,7 +17,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-sky-100 bg-white/95 backdrop-blur">
       <div className="container-shell flex items-center justify-between py-4 md:py-6">
         <Link
-          href="#home"
+          href="/#home"
           className="inline-flex min-h-11 items-center text-sm font-semibold tracking-[0.18em] text-slate-800 transition-colors hover:text-sky-600 sm:text-base"
           onClick={() => setMenuOpen(false)}
         >
