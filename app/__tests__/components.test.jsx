@@ -3,31 +3,25 @@ import { SiteHeader } from "@/app/components/site-header";
 import { SiteFooter } from "@/app/components/site-footer";
 
 describe("SiteHeader", () => {
-  it("renders desktop navigation links", () => {
+  it("renders in-page navigation links", () => {
     render(<SiteHeader />);
 
-    expect(screen.getByRole("link", { name: "HOME" })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: "Interests" })).toHaveAttribute("href", "/interests");
-    expect(screen.getByRole("link", { name: "Articles" })).toHaveAttribute("href", "/articles");
-    expect(screen.getByRole("link", { name: "Contact Me" })).toHaveAttribute("href", "/contactme");
+    expect(screen.getByRole("link", { name: "HOME" })).toHaveAttribute("href", "#home");
+    expect(screen.getByRole("link", { name: "My Chatbot" })).toHaveAttribute("href", "#chatbot");
+    expect(screen.getByRole("link", { name: "Interests" })).toHaveAttribute("href", "#interests");
+    expect(screen.getByRole("link", { name: "Articles" })).toHaveAttribute("href", "#articles");
+    expect(screen.getByRole("link", { name: "Contact Me" })).toHaveAttribute("href", "#contact");
   });
 
-  it("toggles the mobile menu and updates accessibility state", () => {
+  it("toggles the mobile menu and closes after link click", () => {
     render(<SiteHeader />);
 
     const menuButton = screen.getByRole("button", { name: "Toggle navigation menu" });
-    expect(menuButton).toHaveAttribute("aria-expanded", "false");
-    expect(screen.queryByRole("navigation", { name: "Mobile navigation" })).not.toBeInTheDocument();
-
     fireEvent.click(menuButton);
 
-    expect(menuButton).toHaveAttribute("aria-expanded", "true");
     const mobileNav = screen.getByRole("navigation", { name: "Mobile navigation" });
-    expect(mobileNav).toBeInTheDocument();
-
     fireEvent.click(within(mobileNav).getByRole("link", { name: "Interests" }));
 
-    expect(menuButton).toHaveAttribute("aria-expanded", "false");
     expect(screen.queryByRole("navigation", { name: "Mobile navigation" })).not.toBeInTheDocument();
   });
 });

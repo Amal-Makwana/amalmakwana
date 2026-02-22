@@ -25,7 +25,7 @@ export default function AgenticAutonomousSystemsPage() {
 
       <div className="flex flex-wrap gap-3 pt-2">
         <Link
-          href="/articles"
+          href="/#articles"
           className="inline-flex min-h-11 items-center rounded-md border border-sky-200 px-4 py-2 text-sm text-slate-700 hover:border-sky-400 hover:text-sky-700"
         >
           Back to Articles

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Chatbot() {
   const [input, setInput] = useState("");
@@ -13,6 +13,13 @@ export default function Chatbot() {
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isLoading]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -62,35 +69,40 @@ export default function Chatbot() {
   }
 
   return (
-    <section className="chatbot-panel" aria-label="Ask about Amal Makwana">
-      <h2>Ask Amal&apos;s AI Assistant</h2>
-      <div className="chatbot-messages" role="log" aria-live="polite">
-        {messages.map((message, index) => (
-          <div key={`${message.role}-${index}`} className={`chat-bubble ${message.role}`}>
-            <strong>{message.role === "user" ? "You" : "Assistant"}</strong>
-            <p>{message.content}</p>
+    <section className="section-shell" id="chatbot" aria-labelledby="chatbot-heading">
+      <div className="container-shell py-20">
+        <h2 id="chatbot-heading" className="section-title">My Chatbot</h2>
+        <div className="chatbot-panel mt-8 flex max-h-[70vh] flex-col">
+          <div className="chatbot-messages flex-1 overflow-y-auto" role="log" aria-live="polite">
+            {messages.map((message, index) => (
+              <div key={`${message.role}-${index}`} className={`chat-bubble ${message.role}`}>
+                <strong>{message.role === "user" ? "You" : "Assistant"}</strong>
+                <p>{message.content}</p>
+              </div>
+            ))}
+            {isLoading && <p className="chat-status">Thinking...</p>}
+            <div ref={bottomRef} aria-hidden="true" />
           </div>
-        ))}
-        {isLoading && <p className="chat-status">Thinking...</p>}
-      </div>
 
-      <form onSubmit={handleSubmit} className="chatbot-form">
-        <label htmlFor="chatbot-input" className="sr-only">
-          Ask a question about Amal Makwana
-        </label>
-        <input
-          id="chatbot-input"
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="Ask about Amal's work, projects, or expertise"
-          maxLength={500}
-          disabled={isLoading}
-        />
-        <button type="submit" disabled={isLoading || !input.trim()}>
-          Send
-        </button>
-      </form>
-      {error && <p className="chat-error">Error: {error}</p>}
+          <form onSubmit={handleSubmit} className="chatbot-form mt-4">
+            <label htmlFor="chatbot-input" className="sr-only">
+              Ask a question about Amal Makwana
+            </label>
+            <input
+              id="chatbot-input"
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              placeholder="Ask about Amal's work, projects, or expertise"
+              maxLength={500}
+              disabled={isLoading}
+            />
+            <button type="submit" disabled={isLoading || !input.trim()}>
+              Send
+            </button>
+          </form>
+          {error && <p className="chat-error">Error: {error}</p>}
+        </div>
+      </div>
     </section>
   );
 }

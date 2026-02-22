@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} ${inter.variable} ${jetBrainsMono.variable}`}>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="container-shell flex-1 py-8 sm:py-10 md:py-16">{children}</main>
+          <main className="flex-1">{children}</main>
           <SiteFooter />
         </div>
       </body>

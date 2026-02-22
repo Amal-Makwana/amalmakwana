@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Chatbot from "@/app/components/chatbot";
+import InterestsSection from "@/app/components/interests-section";
+import ArticlesSection from "@/app/components/articles-section";
+import ContactSection from "@/app/components/contact-section";
 
 const phrases = [
   "Avid Learner",
@@ -73,24 +76,31 @@ export default function HomePage() {
   }, [hasStartedSkillTyping, isDeleting, phraseIndex, typedText]);
 
   return (
-    <div className="editorial">
-      <section className="section-grid">
-        <div className="space-y-6">
-          <h1>
-            Hello
-            <br />
-            <span className="intro-line" aria-label="I'm Amal Makwana">
-              I&apos;m Amal Makwana
-            </span>
-          </h1>
-          <div className="phrase-cloud" aria-label="Professional roles and interests">
-            <span className="phrase-chip phrase-typing" aria-live="polite">
-              {typedText || "\u00A0"}
-            </span>
+    <>
+      <section id="home" className="section-shell">
+        <div className="container-shell py-20">
+          <div className="editorial">
+            <div className="space-y-6">
+              <h1>
+                Hello
+                <br />
+                <span className="intro-line" aria-label="I'm Amal Makwana">
+                  I&apos;m Amal Makwana
+                </span>
+              </h1>
+              <div className="phrase-cloud" aria-label="Professional roles and interests">
+                <span className="phrase-chip phrase-typing" aria-live="polite">
+                  {typedText || "\u00A0"}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <Chatbot />
-    </div>
+      <InterestsSection />
+      <ArticlesSection />
+      <ContactSection />
+    </>
   );
 }
