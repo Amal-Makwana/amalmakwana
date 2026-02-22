@@ -14,17 +14,17 @@ export function ArticleCard({ title, description, link, external = false }) {
   const linkContent = (
     <>
       <div className="flex items-start justify-between gap-3">
-        <h2 className="text-xl font-semibold text-slate-100 underline-offset-4 transition-all duration-200 group-hover:underline group-focus-within:underline">
+        <h2 className="text-xl font-semibold text-slate-900 underline-offset-4 transition-all duration-200 group-hover:underline group-focus-within:underline">
           {title}
         </h2>
-        <ExternalLinkIcon className="mt-1 h-5 w-5 shrink-0 text-cyan-200/85" />
+        <ExternalLinkIcon className="mt-1 h-5 w-5 shrink-0 text-sky-600" />
       </div>
-      <p className="text-sm leading-relaxed text-slate-200">{description}</p>
+      <p className="text-sm leading-relaxed text-slate-600">{description}</p>
     </>
   );
 
   return (
-    <article className="group rounded-2xl border border-white/20 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10">
+    <article className="group rounded-2xl border border-sky-100 bg-white shadow-sm p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-200/80">
       {external ? (
         <a
           href={link}
