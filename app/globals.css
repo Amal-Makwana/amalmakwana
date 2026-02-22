@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   @apply antialiased;
   background:
-    radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.12), transparent 32%),
-    radial-gradient(circle at 80% 0%, rgba(126, 87, 255, 0.18), transparent 28%),
-    linear-gradient(140deg, #060914 0%, #0b1226 52%, #060812 100%);
-  color: #e6f1ff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Helvetica Neue", sans-serif;
+    radial-gradient(circle at 15% 10%, rgba(14, 165, 233, 0.14), transparent 30%),
+    radial-gradient(circle at 85% 0%, rgba(20, 184, 166, 0.12), transparent 28%),
+    linear-gradient(160deg, #f8fafc 0%, #ffffff 48%, #f5fbff 100%);
+  color: #0f172a;
   min-height: 100vh;
 }
 
@@ -24,7 +22,7 @@ body {
 
 .nav-link {
   position: relative;
-  transition: color 180ms ease, text-shadow 180ms ease;
+  transition: color 180ms ease;
 }
 
 .nav-link::after {
@@ -34,7 +32,7 @@ body {
   bottom: -0.25rem;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #4ef4ff, #a38bff);
+  background: linear-gradient(90deg, #0ea5e9, #14b8a6);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 220ms ease;
@@ -47,36 +45,32 @@ body {
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  color: #f4f9ff;
-  text-shadow: 0 0 12px rgba(78, 244, 255, 0.55);
+  color: #0369a1;
 }
 
 .editorial {
   @apply mx-auto max-w-4xl space-y-10 rounded-3xl border p-5 sm:p-7 md:space-y-14 md:p-12;
-  border-color: rgba(153, 190, 255, 0.2);
-  background: linear-gradient(145deg, rgba(7, 14, 30, 0.88), rgba(8, 20, 46, 0.73));
-  box-shadow:
-    inset 0 1px 0 rgba(217, 233, 255, 0.1),
-    0 22px 60px rgba(4, 12, 30, 0.52);
-  backdrop-filter: blur(4px);
+  border-color: #dbeafe;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.95));
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.09);
 }
 
 .editorial h1 {
   @apply font-semibold leading-tight tracking-tight;
   font-size: clamp(2rem, 7vw, 3.75rem);
-  color: #f5fbff;
+  color: #0f172a;
 }
 
 .editorial h2 {
   @apply font-semibold tracking-tight;
   font-size: clamp(1.5rem, 4.8vw, 1.875rem);
-  color: #ebf6ff;
+  color: #0f172a;
 }
 
 .editorial p {
   font-size: clamp(1rem, 3.2vw, 1.125rem);
   line-height: clamp(1.65, 1.8, 1.8);
-  color: rgba(215, 228, 248, 0.88);
+  color: #334155;
 }
 
 .section-grid {
@@ -84,10 +78,9 @@ body {
 }
 
 .signal-card {
-  @apply rounded-2xl border p-6;
-  border-color: rgba(114, 154, 226, 0.28);
-  background: rgba(8, 18, 39, 0.75);
-  box-shadow: inset 0 1px 0 rgba(203, 224, 255, 0.1);
+  @apply rounded-2xl border bg-white p-6;
+  border-color: #dbeafe;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
 }
 
 .signal-card p {
@@ -104,11 +97,9 @@ body {
   transform: translateX(42px);
   vertical-align: baseline;
   font: inherit;
-  color: #8af6ff;
-  text-shadow: 0 0 16px rgba(78, 244, 255, 0.45);
+  color: #0369a1;
   animation: slide-in-intro var(--intro-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--intro-delay) forwards;
 }
-
 
 @keyframes slide-in-intro {
   from {
@@ -144,9 +135,9 @@ body {
   display: inline-block;
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  border: 1px solid #bfdbfe;
+  background: #f0f9ff;
+  color: #0f172a;
   font-size: 1.76rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -167,7 +158,7 @@ body {
   height: 0.9em;
   margin-left: 0.14em;
   vertical-align: -0.08em;
-  background: #9f87ff;
+  background: #0ea5e9;
   animation: blink-caret 0.75s step-end infinite;
 }
 
@@ -199,10 +190,9 @@ body {
 }
 
 .chatbot-panel {
-  @apply rounded-2xl border p-5 sm:p-6;
-  border-color: rgba(114, 154, 226, 0.28);
-  background: rgba(8, 18, 39, 0.74);
-  box-shadow: inset 0 1px 0 rgba(203, 224, 255, 0.1);
+  @apply rounded-2xl border bg-white p-5 sm:p-6;
+  border-color: #dbeafe;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 .chatbot-panel h2 {
@@ -217,10 +207,11 @@ body {
   flex-direction: column;
   gap: 0.7rem;
   margin-bottom: 1rem;
+  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .chat-bubble {
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   padding: 0.7rem 0.85rem;
 }
 
@@ -231,18 +222,18 @@ body {
 }
 
 .chat-bubble.user {
-  background: rgba(78, 244, 255, 0.14);
-  border: 1px solid rgba(78, 244, 255, 0.3);
+  background: #e0f2fe;
+  border: 1px solid #7dd3fc;
 }
 
 .chat-bubble.assistant {
-  background: rgba(163, 139, 255, 0.14);
-  border: 1px solid rgba(163, 139, 255, 0.34);
+  background: #ccfbf1;
+  border: 1px solid #5eead4;
 }
 
 .chat-status {
   font-size: 0.92rem;
-  color: #b7cdf8;
+  color: #475569;
 }
 
 .chatbot-form {
@@ -253,18 +244,26 @@ body {
 .chatbot-form input {
   flex: 1;
   border-radius: 0.6rem;
-  border: 1px solid rgba(152, 174, 218, 0.45);
-  background: rgba(4, 12, 28, 0.8);
-  color: #eaf3ff;
+  border: 1px solid #bfdbfe;
+  background: #fff;
+  color: #0f172a;
   padding: 0.6rem 0.8rem;
+  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.chatbot-form input:focus-visible,
+.chatbot-form button:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
 }
 
 .chatbot-form button {
   border-radius: 0.6rem;
   padding: 0.6rem 0.95rem;
-  border: 1px solid rgba(78, 244, 255, 0.42);
-  background: rgba(78, 244, 255, 0.12);
-  color: #eaf9ff;
+  border: 1px solid #0284c7;
+  background: #0ea5e9;
+  color: #fff;
+  font-weight: 600;
 }
 
 .chatbot-form button:disabled {
@@ -274,6 +273,6 @@ body {
 
 .chat-error {
   margin-top: 0.6rem;
-  color: #ffb4b4;
+  color: #b91c1c;
   font-size: 0.9rem;
 }

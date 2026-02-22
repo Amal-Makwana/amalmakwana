@@ -53,8 +53,8 @@ export default function AboutPage() {
           to share your preferred contact details.
         </p>
 
-        <details className="rounded-md border border-white/25 bg-white/5 p-4 sm:p-5" open>
-          <summary className="cursor-pointer py-1 text-sm font-medium text-slate-100">LinkedIn</summary>
+        <details className="rounded-xl border border-sky-100 bg-white p-4 shadow-sm sm:p-5" open>
+          <summary className="cursor-pointer py-1 text-sm font-medium text-slate-800">LinkedIn</summary>
           <div className="mt-4">
             <a
               href="https://www.linkedin.com/in/amalmakwana/"
@@ -68,11 +68,11 @@ export default function AboutPage() {
           </div>
         </details>
 
-        <details className="rounded-md border border-white/25 bg-white/5 p-4 sm:p-5">
-          <summary className="cursor-pointer py-1 text-sm font-medium text-slate-100">Send an enquiry</summary>
+        <details className="rounded-xl border border-sky-100 bg-white p-4 shadow-sm sm:p-5">
+          <summary className="cursor-pointer py-1 text-sm font-medium text-slate-800">Send an enquiry</summary>
           <form className="mt-4 space-y-4" onSubmit={handleEnquire}>
             <div className="space-y-1">
-              <label htmlFor="name" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="name" className="block text-sm font-medium text-slate-700">
                 Name
               </label>
               <input
@@ -81,13 +81,13 @@ export default function AboutPage() {
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
+                className="w-full min-h-11 rounded-md border border-sky-200 bg-white px-3 py-2 text-base text-slate-900 shadow-sm sm:text-sm"
                 required
               />
             </div>
 
             <div className="space-y-1">
-              <label htmlFor="email" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="email" className="block text-sm font-medium text-slate-700">
                 email address
               </label>
               <input
@@ -96,13 +96,13 @@ export default function AboutPage() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
+                className="w-full min-h-11 rounded-md border border-sky-200 bg-white px-3 py-2 text-base text-slate-900 shadow-sm sm:text-sm"
                 required
               />
             </div>
 
             <div className="space-y-1">
-              <label htmlFor="phone" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="phone" className="block text-sm font-medium text-slate-700">
                 phone number
               </label>
               <input
@@ -111,13 +111,13 @@ export default function AboutPage() {
                 type="tel"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
+                className="w-full min-h-11 rounded-md border border-sky-200 bg-white px-3 py-2 text-base text-slate-900 shadow-sm sm:text-sm"
                 required
               />
             </div>
 
             <div className="space-y-1">
-              <label htmlFor="reason" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="reason" className="block text-sm font-medium text-slate-700">
                 Reason
               </label>
               <textarea
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 name="reason"
                 value={formData.reason}
                 onChange={handleChange}
-                className="w-full min-h-11 rounded-md border border-white/25 bg-slate-950/40 px-3 py-2 text-base text-slate-100 sm:text-sm"
+                className="w-full min-h-11 rounded-md border border-sky-200 bg-white px-3 py-2 text-base text-slate-900 shadow-sm sm:text-sm"
                 rows={4}
                 required
               />
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
             <button
               type="submit"
-              className="min-h-11 rounded-md bg-cyan-500 px-5 py-2 text-sm font-medium text-slate-950 transition-opacity hover:opacity-85"
+              className="min-h-11 rounded-md bg-sky-500 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
             >
               Enquire
             </button>

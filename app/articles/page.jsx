@@ -14,7 +14,7 @@ export default function ArticlesPage() {
     <section className="space-y-8">
       <div className="max-w-2xl space-y-4">
         <h1 className="text-4xl font-semibold tracking-tight">Articles</h1>
-        <p className="text-slate-200">Browse published writing and article summaries.</p>
+        <p className="text-slate-600">Browse published writing and article summaries.</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
