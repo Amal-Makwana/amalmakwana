@@ -74,23 +74,25 @@ export default function Chatbot() {
         {isLoading && <p className="chat-status">Thinking...</p>}
       </div>
 
-      <form onSubmit={handleSubmit} className="chatbot-form">
-        <label htmlFor="chatbot-input" className="sr-only">
-          Ask a question about Amal Makwana
-        </label>
-        <input
-          id="chatbot-input"
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="Ask about Amal's work, projects, or expertise"
-          maxLength={500}
-          disabled={isLoading}
-        />
-        <button type="submit" disabled={isLoading || !input.trim()}>
-          Send
-        </button>
-      </form>
-      {error && <p className="chat-error">Error: {error}</p>}
+      <div className="chatbot-footer">
+        <form onSubmit={handleSubmit} className="chatbot-form">
+          <label htmlFor="chatbot-input" className="sr-only">
+            Ask a question about Amal Makwana
+          </label>
+          <input
+            id="chatbot-input"
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            placeholder="Ask about Amal's work, projects, or expertise"
+            maxLength={500}
+            disabled={isLoading}
+          />
+          <button type="submit" disabled={isLoading || !input.trim()}>
+            Send
+          </button>
+        </form>
+        {error && <p className="chat-error">Error: {error}</p>}
+      </div>
     </section>
   );
 }
