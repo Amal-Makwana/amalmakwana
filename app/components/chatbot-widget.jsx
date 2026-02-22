@@ -53,14 +53,13 @@ export default function ChatbotWidget() {
         ...current,
         { role: "assistant", content: payload.reply || "No response generated." },
       ]);
-    } catch (requestError) {
-      setError(requestError.message || "Something went wrong.");
+    } catch {
+      setError("I am a work in progress, I will get better");
       setMessages((current) => [
         ...current,
         {
           role: "assistant",
-          content:
-            "Sorry, I could not process that request right now. Please try again in a moment.",
+          content: "I am a work in progress, I will get better",
         },
       ]);
     } finally {

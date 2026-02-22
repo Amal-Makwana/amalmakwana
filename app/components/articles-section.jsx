@@ -12,7 +12,7 @@ const articles = [
 export default function ArticlesSection() {
   return (
     <section id="articles" className="section-shell" aria-labelledby="articles-heading">
-      <div className="container-shell py-20">
+      <div className="container-shell py-14">
         <h2 id="articles-heading" className="section-title">Articles</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {articles.map((article) => (

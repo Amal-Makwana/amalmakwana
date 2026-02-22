@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Chatbot() {
   return (
     <section className="section-shell" id="chatbot" aria-labelledby="chatbot-heading">
-      <div className="container-shell py-20">
+      <div className="container-shell py-14">
         <h2 id="chatbot-heading" className="section-title">My Chatbot</h2>
         <a
           href="/chatbot"
